@@ -1,0 +1,102 @@
+@font-face{
+  font-family: 'Bebas Neue';
+  src: url('../fonts/BebasNeue-Bold.otf');
+}
+
+@font-face{
+  font-family: 'Open Sans Bold';
+  src: url('../fonts/OpenSans-Bold.ttf');
+}
+
+@font-face{
+  font-family: 'Open Sans Condensed Bold';
+  src: url('../fonts/OpenSans-CondBold.ttf');
+}
+
+@font-face{
+  font-family: 'Open Sans Italic';
+  src: url('../fonts/OpenSans-Italic.ttf');
+}
+
+@font-face{
+  font-family: 'Open Sans Regular';
+  src: url('../fonts/OpenSans-Regular.ttf');
+}
+
+body{
+  font-family: 'Open Sans Regular';
+  background: #f2ad2d;
+}
+
+/* Home */
+
+.logoHome{
+  position: absolute;
+  top: 33%;
+  left: 33%;
+  width: 35%;
+}
+.abejaHome{
+  position: absolute;
+  top: 10%;
+  left: 47%;
+  width: 8%;
+}
+
+.loginHome{
+  position: absolute;
+  top: 60%;
+  left: 41%;
+  width: 8%;
+}
+
+.loginHome:hover{
+  cursor: pointer;
+}
+
+.registroHome{
+  position: absolute;
+  top: 60%;
+  left: 53%;
+  width: 8%;
+}
+
+.registroHome:hover{
+  cursor: pointer;  
+}
+
+/* Registro */
+
+.cabeceraRegistro{
+  height: 7em;
+}
+.contenidoRegistro{
+  margin: 0px !important;
+  padding: 0px !important;
+  height: 8em;
+}
+
+.titulosBlanco{
+  color: #fff;
+  font-family: 'Bebas Neue';
+}
+
+.logoRegistro{
+  position: absolute;
+  top: 3%;
+  left: 41%;
+  width: 15%;
+}
+
+.abejaRegistro{
+  position: absolute;
+  top: 3%;
+  left: 57%;
+  width: 3%;
+}
+.formulario{
+  background: #fff;
+}
+.fondoNormal{
+  background: #f2ad2d;
+}

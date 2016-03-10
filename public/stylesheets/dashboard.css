@@ -1,0 +1,40 @@
+@font-face{
+  font-family: 'Bebas Neue';
+  src: url('../fonts/BebasNeue-Bold.otf');
+}
+
+@font-face{
+  font-family: 'Open Sans Bold';
+  src: url('../fonts/OpenSans-Bold.ttf');
+}
+
+@font-face{
+  font-family: 'Open Sans Condensed Bold';
+  src: url('../fonts/OpenSans-CondBold.ttf');
+}
+
+@font-face{
+  font-family: 'Open Sans Italic';
+  src: url('../fonts/OpenSans-Italic.ttf');
+}
+
+@font-face{
+  font-family: 'Open Sans Regular';
+  src: url('../fonts/OpenSans-Regular.ttf');
+}
+
+body{
+  font-family: 'Open Sans Regular';
+  background: #fff;
+}
+
+.barraLateral{
+  margin-top: -0.1em;
+  background: #f2ad2d;
+  height: 100vh;
+}
+.navBar{
+  height: 5vh;
+  background: #645541;
+}
+
