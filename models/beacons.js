@@ -16,11 +16,9 @@ var BeaconsSchema = new mongoose.Schema({
     type: Number,
     default: 0
   },
-  lat: {
-    type: Number
-  },
-  lng: {
-    type: Number
+  geo: {
+    type: [Number],
+    index: '2d'
   },
   punto: {type: mongoose.Schema.Types.ObjectId, ref:'Punto'},
   creacion: {

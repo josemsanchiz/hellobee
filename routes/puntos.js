@@ -8,6 +8,36 @@ var Beacons = require('../models/beacons');
 
 var verToken = require('../controllers/token');
 
+// GET Obtener puntos por proximidad, no verifica token
+
+router.get('/obtener/prox/:idLat/:idLng', function(req, res, next){
+  
+  var distancia = 1000/6371;
+  console.log('Lat: ' + req.params.idLat + ' Long: ' + req.params.idLng );
+  var query = Puntos.find({
+    'geo': {
+      $near: [
+        req.params.idLat,
+        req.params.idLng
+      ], $maxDistance: distancia
+    }
+  }, function(err, puntos){
+    if(err) {
+      res.json({
+        success: false,
+        message: 'Hay algún error',
+        data: err
+      })
+    } else {
+      res.json({
+        success: true,
+        message: 'Petición correcta',
+        data: puntos
+      })
+    }
+  })
+})
+
 // GET * ruta middleware para comprobar si hay token
 
 router.get('*', function(req, res, next) {
@@ -53,7 +83,7 @@ router.get('/', function(req, res, next) {
 
 // POST /:idUsuario/crear/:idBeacon este punto solo debe ser accesible por administradores
 
-router.post('/:idUsuario/crear/:idBeacon', function(req, res, next){
+router.post('/crear/:idBeacon', function(req, res, next){
   Puntos.create({
     nombre: req.body.nombre,
     direccion: req.body.direccion,
@@ -61,9 +91,8 @@ router.post('/:idUsuario/crear/:idBeacon', function(req, res, next){
     telefono: req.body.telefono,
     email: req.body.email,
     beacon: req.params.idBeacon,
-    cliente: req.params.idUsuario,
-    lat: req.body.lat,
-    lng: req.body.lng,
+    cliente: req.decoded._doc._id,
+    geo: [req.body.lat, req.body.lng],
     web: req.body.web
   }, function(err, punto){
     if(err) {
@@ -102,5 +131,7 @@ router.get('/obtener', function(req, res, next){
     })
   })
 })
+
+
 
 module.exports = router;

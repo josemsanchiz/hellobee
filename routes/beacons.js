@@ -58,7 +58,8 @@ router.post('/crear', function(req, res, next){
     nombre: req.body.nombre,
     uuid: req.body.uuid,
     major: req.body.major,
-    minor: req.body.minor
+    minor: req.body.minor,
+    geo: [req.body.lat, req.body.long]
   }, function(err, beacon){
     if(err) return next(err)
     res.json({
