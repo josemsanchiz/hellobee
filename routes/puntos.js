@@ -43,7 +43,7 @@ router.get('/obtener/prox/:idLat/:idLng', function(req, res, next){
   
   Puntos.geoNear([lat, lng], {
     maxDistance: 3000,
-    spherical: false
+    spherical: true
   }, function(err, results, stats){
     if(err){
       res.json({
