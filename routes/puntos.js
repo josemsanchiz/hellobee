@@ -12,7 +12,7 @@ var verToken = require('../controllers/token');
 
 router.get('/obtener/prox/:idLat/:idLng', function(req, res, next){
   
-  var distancia = 1000/6371;
+  /*var distancia = 1000/6371;
   console.log('Lat: ' + req.params.idLat + ' Long: ' + req.params.idLng );
   var query = Puntos.find({
     'geo': {
@@ -35,6 +35,28 @@ router.get('/obtener/prox/:idLat/:idLng', function(req, res, next){
         data: puntos
       })
     }
+  })*/
+  
+  var lat = parseFloat(req.params.idLat);
+  var lng = parseFloat(req.params.idLng);
+  
+  
+  Puntos.geoNear([lat, lng], {
+    maxDistance: 3000,
+    spherical: false
+  }, function(err, results, stats){
+    if(err){
+      res.json({
+        success: false,
+        data: err
+      })
+    }
+    
+    res.json({
+      success:true,
+      data: results,
+      stats: stats
+    })
   })
 })
 
