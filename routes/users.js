@@ -120,6 +120,7 @@ router.post('/editar/:idUsuario', function(req, res, next){
     usuario.genero = req.body.genero ? req.body.genero : usuario.genero;
     usuario.fecha_nacimiento = req.body.fecha_nacimiento ? req.body.fecha_nacimiento : usuario.fecha_nacimiento;
     usuario.rol = req.body.rol ? req.body.rol : usuario.rol;
+    usuario.avatar = req.body.avatar ? req.body.avatar : usuario.avatar;
     
     usuario.save(function(err, respuesta){
       if(err){

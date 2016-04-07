@@ -132,6 +132,42 @@ router.post('/crear/:idBeacon', function(req, res, next){
   })
 })
 
+router.post('/editar/:idPunto', function(req, res, next){
+  Puntos.findOne({_id: req.params.idPunto}, function(err, punto){
+    if(err){
+      res.json({
+        success: false,
+        message: 'Hay un error',
+        data: err
+      })
+    }
+    
+    punto.nombre = req.body.nombre ? req.body.nombre : punto.nombre;
+    punto.direccion = req.body.direccion ? req.body.direccion : punto.direccion;
+    punto.localidad = req.body.localidad ? req.body.localidad : punto.localidad;
+    punto.email = req.body.email ? req.body.email : punto.email;
+    punto.telefono = req.body.telefono ? req.body.telefono : punto.telefono;
+    punto.web = req.body.web ? req.body.web : punto.web;
+    punto.logo = req.body.logo ? req.body.logo : punto.logo;
+    punto.portada = req.body.portada ? req.body.portada : punto.portada;
+    
+    punto.save(function(err, respuesta){
+      if(err){
+        res.json({
+          success: false,
+          message: 'Hay un error',
+          data: err
+        })
+      }
+      res.json({
+        success: true,
+        message: 'Edicion correcta',
+        data: respuesta
+      })
+    })
+  })
+})
+
 // GET /obtener
 
 router.get('/obtener', function(req, res, next){
