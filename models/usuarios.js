@@ -34,6 +34,10 @@ var UsuariosSchema = new mongoose.Schema({
   puntos: [{type: mongoose.Schema.Types.ObjectId, ref: 'Punto'}],
   ofertas: [{type: mongoose.Schema.Types.ObjectId, ref: 'Oferta'}],
   guardadas: String,
+  avatar: {
+    type: String,
+    default: 'no_logo.png'
+  },
   creacion: {
     type: Date,
     default: Date.now

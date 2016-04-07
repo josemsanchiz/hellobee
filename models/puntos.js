@@ -39,6 +39,14 @@ var PuntosSchema = new mongoose.Schema({
     type: Number,
     default: 0
   },
+  logo: {
+    type: String,
+    default: 'no_logo.png'
+  },
+  portada: {
+    type: String,
+    default: 'no_portada.png'
+  },
   creacion: {
     type: Date,
     default: Date.now
